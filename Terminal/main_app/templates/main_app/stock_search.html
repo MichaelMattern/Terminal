@@ -1,0 +1,16 @@
+{% extends 'main_app/base.html' %}
+{% block title %}stock search{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="stock_symbol" placeholder="Enter stock symbol" required>
+    <button type="submit">Get Price</button>
+</form>
+
+{% if current_price %}
+    <p>The current price of {{ stock_symbol }} is ${{ current_price }}</p>
+{% elif error %}
+    <p>{{ error }}</p>
+{% endif %}
+{% endblock %}

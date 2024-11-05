@@ -1,0 +1,128 @@
+{% extends 'main_app/base.html' %}
+{% block title %}tools{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Never Go Broke Terminal - Options Page</title>
+
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(135deg, #4CAF50, #1C6DD0);
+                color: white;
+                font-family: Arial, sans-serif;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            a, a:hover, a:focus, a:active {
+                text-decoration: none;
+                color: inherit;
+            }
+
+
+            .header-container {
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+                background-color: transparent;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .search-bar {
+                flex-grow: 1;
+                margin-left: 20px;
+            }
+
+            .search-bar input[type="text"] {
+                width: 100%;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #333;
+            }
+
+            .header-buttons {
+                margin-left: 20px;
+            }
+
+            .header-buttons button {
+                margin-left: 10px;
+                padding: 5px 10px;
+                background-color: rgba(255, 215, 0, 0.9);
+                color: #333;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Grid container */
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+                padding: 20px;
+                flex-grow: 1;
+            }
+
+            .grid-item {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 5px;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+                font-size: 1.2em;
+                transition: background-color 0.3s;
+            }
+
+            .grid-item:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <!-- Logo spot -->
+                    <a href ="{% url 'index' %}"><img src="logo.png" alt="Logo"></a>
+                </div>
+                <div class="search-bar">
+                    <!-- Search bar -->
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-buttons">
+                    <!-- Three buttons -->
+                    <button><a href="{% url 'index' %}">Home</a></button>
+                    <button><a href="{% url 'company' %}">Company Info</a></button>
+                    <button><a href="{% url 'account' %}">My Account</a></button>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid-container">
+            <!-- 12 boxes -->
+            <a href="page1.html" class="grid-item">Portfolio Optimizer</a>
+            <a href="page2.html" class="grid-item">Options Pricer</a>
+            <a href="page3.html" class="grid-item">Economic Data Analysis</a>
+            <a href="page4.html" class="grid-item">News Sentiment</a>
+            <a href="page5.html" class="grid-item">Scenario Analysis</a>
+            <a href="https://smbtraining.com/ev-dc744c0204d94b78fee78e17abab3f0b.html" class="grid-item">EV Calculator</a>
+            <a href="page7.html" class="grid-item">Model Maker</a>
+            <a href="page8.html" class="grid-item">Shared Company Files</a>
+        </div>
+    </body>
+</html>
+{% endblock %}

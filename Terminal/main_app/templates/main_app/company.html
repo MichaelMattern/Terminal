@@ -1,0 +1,95 @@
+{% extends 'main_app/base.html' %}
+{% block title %}company{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Never Go Broke Terminal - New Page</title>
+
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(135deg, #4CAF50, #1C6DD0);
+                color: white;
+                font-family: Arial, sans-serif;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            a, a:hover, a:focus, a:active {
+                text-decoration: none;
+                color: inherit;
+            }
+
+
+            .header-container {
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+                background-color: transparent;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .search-bar {
+                flex-grow: 1;
+                margin-left: 20px;
+            }
+
+            .search-bar input[type="text"] {
+                width: 100%;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #333;
+            }
+
+            .header-buttons {
+                margin-left: 20px;
+            }
+
+            .header-buttons button {
+                margin-left: 10px;
+                padding: 5px 10px;
+                background-color: rgba(255, 215, 0, 0.9);
+                color: #333;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Additional styles can be added here */
+        </style>
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <!-- Logo spot -->
+                    <a href = index.html><img src="logo.png" alt="Logo"></a>
+                </div>
+                <div class="search-bar">
+                    <!-- Search bar -->
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-buttons">
+                    <!-- Three buttons -->
+                    <button><a href="{% url 'index' %}">Home</a></button>
+                    <button><a href="{% url 'tools' %}">Tools</a></button>
+                    <button><a href="{% url 'account' %}">My Account</a></button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content area is intentionally left empty -->
+    </body>
+</html>
+{% endblock %}

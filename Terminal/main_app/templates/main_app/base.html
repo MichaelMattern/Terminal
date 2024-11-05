@@ -1,0 +1,24 @@
+<!-- main_app/templates/main_app/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Never Go Broke Terminal{% endblock %}</title>
+ <!--   {% load static %} -->
+</head>
+
+<body>
+    <header>
+        <!-- Include your header content here -->
+        <!-- This can be the same header from your previous HTML code -->
+    </header>
+
+    {% block content %}
+    <!-- Content from child templates will be injected here -->
+    {% endblock %}
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>

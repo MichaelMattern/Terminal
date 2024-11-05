@@ -1,0 +1,146 @@
+<!-- main_app/templates/main_app/index.html -->
+{% extends 'main_app/base.html' %}
+
+{% block title %}index{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Never Go Broke Terminal</title>
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(135deg, #4CAF50, #1C6DD0);
+                color: white;
+                font-family: Arial, sans-serif;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            a, a:hover, a:focus, a:active {
+                text-decoration: none;
+                color: inherit;
+            }
+
+
+            .header-container {
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+                background-color: transparent;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .search-bar {
+                flex-grow: 1;
+                margin-left: 20px;
+            }
+
+            .search-bar input[type="text"] {
+                width: 100%;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .header-buttons {
+                margin-left: 20px;
+            }
+
+            .header-buttons button {
+                margin-left: 10px;
+                padding: 5px 10px;
+                background-color: rgba(255, 215, 0, 0.9);
+                color: #333;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .main-content {
+                display: flex;
+                flex-grow: 1;
+                padding: 20px;
+            }
+
+            .graph-container {
+                flex: 4; /* Increased from 3 to 4 */
+                margin-right: 20px;
+            }
+
+            .portfolio-sidebar {
+                flex: 0.8; /* Decreased from 1 to 0.8 */
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                border-radius: 5px;
+            }
+
+            .portfolio-sidebar h2 {
+                margin-top: 0;
+            }
+
+            .portfolio-sidebar ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .portfolio-sidebar li {
+                margin-bottom: 10px;
+            }
+
+            /* Remove borders and backgrounds that may interrupt the gradient */
+            input[type="text"] {
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <!-- Logo spot -->
+                    <a href = index.html><img src="logo.png" alt="Logo"></a>
+                </div>
+                <div class="search-bar">
+                    <!-- Search bar with a form -->
+                    <form method="post" action="{% url 'stock_search' %}">
+                        {% csrf_token %}
+                        <input type="text" name="stock_symbol" placeholder="Search for a stock..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="header-buttons">
+                    <!-- Three buttons -->
+                    <button><a href="{% url 'tools' %}">Tools</a></button>
+                    <button><a href="{% url 'company' %}">Company Info</a></button>
+                    <button><a href="{% url 'account' %}">My Account</a></button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="graph-container">
+                <!-- Placeholder for the graph -->
+                <canvas id="portfolioGraph" width="600" height="400"></canvas>
+            </div>
+            <div class="portfolio-sidebar">
+                <!-- Portfolio positions will go here -->
+                <h2>Your Portfolio Positions</h2>
+                <ul>
+                    <li>Position 1</li>
+                    <li>Position 2</li>
+                    <li>Position 3</li>
+                    <!-- Add more positions as needed -->
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}
