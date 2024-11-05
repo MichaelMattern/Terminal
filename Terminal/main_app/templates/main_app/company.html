@@ -74,11 +74,15 @@
             <div class="header-container">
                 <div class="logo">
                     <!-- Logo spot -->
-                    <a href = index.html><img src="logo.png" alt="Logo"></a>
+                    <a href ="{% url 'index' %}"><img src="logo.png" alt="Logo"></a>
                 </div>
                 <div class="search-bar">
-                    <!-- Search bar -->
-                    <input type="text" placeholder="Search...">
+                    <!-- Search bar with a form -->
+                    <form method="post" action="{% url 'stock_search' %}">
+                        {% csrf_token %}
+                        <input type="text" name="stock_symbol" placeholder="Search for a stock..." required>
+                        <button type="submit" hidden>Search</button>
+                    </form>
                 </div>
                 <div class="header-buttons">
                     <!-- Three buttons -->
